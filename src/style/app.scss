@@ -1,0 +1,119 @@
+@import'./common/imports/vars';
+@import'./common/imports/fonts.scss'; 
+@import'./common/imports/mixins'; 
+
+
+html {
+	box-sizing: border-box;
+	font-size: 18px; 
+	line-height: 1;
+	position: relative;
+	min-height: 100%;
+}
+*, *::before, *::after { 
+	box-sizing: inherit;
+}
+.clearfix::before, .clearfix::after {
+	content: "";
+	display: table;
+}
+.clearfix::after {
+	clear: both;
+} 
+::-ms-clear {
+	display: none;
+} 
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li{
+		margin: 0;
+		padding: 0;
+	}
+}
+body {
+	margin: 0; 
+	//add styles width vars here please!!!!
+}
+a{
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	text-decoration: none;
+	&:visited, &:hover, &:active{
+		outline: none !important;
+		text-decoration: none !important;
+	}
+} 
+
+*:focus, *:visited, *:active, *:hover  { outline:0 !important;}
+*::-moz-focus-inner {border:0;} 
+
+
+.wrapper{
+	overflow: hidden; 
+	padding: 0;
+  min-width: 320px;
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+} 
+.container {
+  max-width: 1000px;
+  padding: 0 10px;
+  margin: 0 auto;
+	position: relative; }
+	
+.section{
+	position: relative;
+}
+
+.icon{
+	display: inline-block;
+	max-width: 100%;
+	max-height: 100%;
+	svg{
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+//gradien text 
+.gradient {
+  background: -webkit-gradient(linear, right top, left top, from(#50b964), to(#57c8e4));
+  background: linear-gradient(to left, #50b964 0%, #57c8e4 100%);
+  -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; }
+	
+//gradien text IE color
+_:-ms-fullscreen, :root .gradient {
+  color: #57c8e4; }
+
+_:-ms-fullscreen, :root .gradient {
+  background: transparent; }
+
+//===============================================================================================//
+
+//=============================================imports============================================//
+//Import here
+// @import 'common/greating';
+//=================================================================================================//
+
+//=============================================media==============================================//
+@media (max-width: 1199px) {
+
+}
+@media (max-width: 999px){
+
+}
+@media (max-width: 767px) {
+
+}
+@media (max-width: 479px) {
+
+}
+//===================================================================================================//
