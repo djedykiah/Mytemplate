@@ -8,6 +8,7 @@ module.exports = function() {
 }); 
 	$.gulp.task('sass', function() {  
 		var postcss = require('gulp-postcss'); 
+		var sorting = require('postcss-sorting')
 		var processors = [ 
 			require('postcss-short')(shortConfig), 
 			require('rucksack-css')({
@@ -16,10 +17,15 @@ module.exports = function() {
 			require('postcss-font-magician')(), 
 			require('css-mqpacker')(), 
 			require('postcss-pxtorem')(), 
-			require('postcss-sorting')({
-				'order': [
-					'alphabetical'
-				]
+			sorting({
+				"order": [
+					"custom-properties",
+					"dollar-variables",
+					"declarations",
+					"at-rules",
+					"rules"
+					],
+					"properties-order": [ "position", "top", "right", "bottom", "left", "z-index", "display", "float", "width", "height", "font", "font-size", "line-height", "color", "text-align", "background-color", "background", "border", "border-radius", "box-shadow", "padding", "margin", "opacity"]
 			})
 			
 		]
@@ -27,7 +33,11 @@ module.exports = function() {
 			.pipe($.gp.sourcemaps.init())
 			.pipe($.gp.sass()).on('error', $.gp.notify.onError({ title: 'Style' })) 
 			.pipe($.gp.autoprefixer({ browsers: $.config.autoprefixerConfig })) 
-			.pipe(postcss(processors))
+			.pipe(postcss(processors,
+			{
+				syntax: require('postcss-scss')
+			}
+			))
 			.pipe($.gp.sourcemaps.write()) 
 			.pipe($.gulp.dest($.config.root + '/css'))
 			.pipe($.browserSync.stream());

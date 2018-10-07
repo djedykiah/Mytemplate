@@ -4,10 +4,10 @@
 
 
 html {
+	position: relative;
 	box-sizing: border-box;
 	font-size: 18px;
 	line-height: 1;
-	position: relative;
 	min-height: 100%;
 }
 
@@ -19,8 +19,8 @@ html {
 
 .clearfix::before,
 .clearfix::after {
-	content: "";
 	display: table;
+	content: "";
 }
 
 .clearfix::after {
@@ -75,19 +75,19 @@ a {
 
 
 .wrapper {
+	position: relative;
 	overflow: hidden;
 	padding: 0;
 	min-width: 320px;
-	position: relative;
 	overflow: hidden;
 	opacity: 1;
 }
 
 .container {
+	position: relative;
 	max-width: 1000px;
 	padding: 0 10px;
 	margin: 0 auto;
-	position: relative;
 }
 
 .section {
@@ -150,15 +150,51 @@ p {
 		color: white;
 	}
 } 
-.div {
+.div { 
+	position: relative 0 0 _;
 	size: 100px; 
-	position: relative 0 0 _; 
 	font-size: 12px / 14px; 
 	padding: 10px; 
 	margin: 10px;
 	font-size: 15px;
 } 
-
+.rok { 
+	display: flex; 
+	position: relative;
+	font-size: 12px / 14px; 
+	margin: 20px; 
+	size: 30px 50px; 
+	padding: 20px;
+} 
+.ll { 
+	display: flex; 
+	position: absolute;
+	font-size: 10px; 
+	margin: 20px; 
+	background: #50b964;
+} 
+.oo {
+	margin: 20px; 
+	font-size: 10px / 19px; 
+	position: relative; 
+	display: inline; 
+	padding: 20px
+} 
+.test {
+	margin-bottom: 20px; 
+	box-shadow: 1px; 
+	background-color: #fff; 
+	padding: 20px; 
+	display: inline; 
+	opacity: 1; 
+	text-align: center; 
+	size: 30px 30px; 
+	font-size: 20px / 30px; 
+	margin-top: 20px; 
+	padding-bottom: 10px; 
+	margin: 20px; 
+	@include vcenter;
+}
 
 
 //===============================================================================================//
