@@ -1,6 +1,7 @@
 @import'./common/imports/vars';
 @import'./common/imports/fonts.scss';
-@import'./common/imports/mixins';
+@import'./common/imports/mixins'; 
+
 
 
 html {
@@ -217,14 +218,18 @@ p {
 @media (--viewport-medium) {
 	.rok {
 		size: 200px; 
-		color: rebeccapurple!shit;
+		color: rebeccapurple;
 	}
 }
 //===============================================================================================//
 
 //=============================================imports============================================//
 //Import here
-// @import 'common/greating';
+// @import 'common/greating'; 
+@import'./common/section1.scss'; 
+.an {
+	size: 200px
+}
 //=================================================================================================//
 
 //=============================================media==============================================//

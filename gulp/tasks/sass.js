@@ -8,10 +8,7 @@ module.exports = function() {
 }); 
 	$.gulp.task('sass', function() {  
 		const postcss = require('gulp-postcss');  
-		const caralho = require('postcss-caralho');
-		const words = require('curse-words-common');
 		var processors = [ 
-			caralho(words), 
 			require('postcss-short')(shortConfig), 
 			require('rucksack-css')({
 				autoprefixer: false
@@ -21,7 +18,6 @@ module.exports = function() {
 			require('css-mqpacker')(),  
 			require('postcss-fixes')(), 
 			require('postcss-hocus'),
-			require('postcss-pseudo-content-insert'),
 			require('postcss-insert')(), 
 			require('postcss-merge-rules')(), 
 			require('postcss-single-line'),
@@ -36,16 +32,14 @@ module.exports = function() {
 			
 		]
 		return $.gulp.src('./src/style/app.scss')
-			.pipe($.gp.sourcemaps.init()) 
+			.pipe($.gp.sourcemaps.init())  
+			.pipe($.gp.sass()).on('error', $.gp.notify.onError({ title: 'Style' })) 
+			.pipe($.gp.autoprefixer({ browsers: $.config.autoprefixerConfig })) 
 			.pipe(postcss(processors,
 				{
 					syntax: require('postcss-scss')
 				}
-				
 				))
-			.pipe($.gp.sass()).on('error', $.gp.notify.onError({ title: 'Style' })) 
-			.pipe($.gp.autoprefixer({ browsers: $.config.autoprefixerConfig })) 
-	
 			.pipe($.gp.sourcemaps.write()) 
 			.pipe($.gulp.dest($.config.root + '/css'))
 			.pipe($.browserSync.stream());
